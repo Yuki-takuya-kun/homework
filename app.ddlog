@@ -1,8 +1,27 @@
 articles(
 	@key
-	id	text,
+	doc_id	text,
 
 	content	text,
 ).
 
 
+sentences(
+
+	doc_id text,
+	sentence_id text,
+	sentence_text text,
+	tokens text[],
+	pos_tags text[],
+	ner_tags text[]
+
+).
+
+fucntion tokenize_pos_ner(
+	doc_id text,
+	content text
+) returns rows like sentences
+implementation "udf/extract.py" handles csv lines.
+
+sentences += extract(doc_id, content ) :-
+articles(doc_id, content).
