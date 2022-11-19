@@ -1,8 +1,10 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
 from deepdive import *
 from stanfordcorenlp import StanfordCoreNLP
 
 
-@csv_extractor
+@tsv_extractor
 @returns(lambda
          doc_id = 'text',
          sentence_id = 'text',
