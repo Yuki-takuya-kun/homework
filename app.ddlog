@@ -1,0 +1,8 @@
+articles(
+	@key
+	id	text,
+
+	content	text,
+).
+
+
